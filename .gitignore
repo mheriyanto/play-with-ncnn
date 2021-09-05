@@ -1,0 +1,29 @@
+# Python: https://github.com/github/gitignore/blob/master/Python.gitignore
+
+# Cache
+__pycache__/
+
+## Distribution / packaging
+build/
+dist/
+MANIFEST
+
+## PyInstaller
+*.manifest
+*.spec
+
+## Unit test / coverage reports
+.tox/
+
+## Flask stuff:
+instance/
+.webassets-cache
+
+## Environments
+.env
+.venv
+env/
+venv/
+
+# FOLDER -----------------
+# samples/
