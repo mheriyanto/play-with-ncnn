@@ -757,6 +757,7 @@ class NanoDetNCNN(NanoDetABC):
 
 
 def main():
+    # python3 inference.py --backend ncnn --img_fold samples
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--model_path", dest="model_path", type=str, default="saved/models/nanodet_m.param"
@@ -769,7 +770,7 @@ def main():
     )
     parser.add_argument("--img_fold", dest="img_fold", type=str, default="samples")
     parser.add_argument(
-        "--result_fold", dest="result_fold", type=str, default="saved/log/results"
+        "--result_fold", dest="result_fold", type=str, default="saved/logs/results"
     )
     parser.add_argument(
         "--input_shape", dest="input_shape", nargs=2, type=int, default=[320, 320]
@@ -798,8 +799,8 @@ def main():
 
 
 def test_one():
-    detector = NanoDetNCNN("./weight/nanodet_m.param", "./weight/nanodet_m.bin")
-    img = cv2.imread("./data/2.jpg")
+    detector = NanoDetNCNN("saved/models/nanodet_m.param", "saved/models/nanodet_m.bin")
+    img = cv2.imread("samples/test2.jpg")
     bbox, label, score = detector.detect(img)
     img_draw = detector.draw_box(img, bbox, label, score)
     plt.imshow(img_draw[..., ::-1])
@@ -809,3 +810,4 @@ def test_one():
 
 if __name__ == "__main__":
     main()
+    test_one()

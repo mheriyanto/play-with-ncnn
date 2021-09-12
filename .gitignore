@@ -26,4 +26,4 @@ env/
 venv/
 
 # FOLDER -----------------
-# samples/
+saved/logs/results/
